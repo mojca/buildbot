@@ -156,7 +156,9 @@ class Boolean(Instance):
 class Identifier(Type):
 
     name = "identifier"
-    identRe = re.compile('^[a-zA-Z_-][a-zA-Z0-9_-]*$')
+    # I was initially pointed out to this regexp, but it seems to be used for other stuff
+    # maybe a dot makes sense here as well, I'm just not sure where it is used
+    identRe = re.compile('^[a-zA-Z._-][a-zA-Z0-9._-]*$')
     ramlType = "string"
 
     def __init__(self, len=None, **kwargs):
